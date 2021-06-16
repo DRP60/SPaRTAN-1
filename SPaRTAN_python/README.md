@@ -7,7 +7,7 @@ The package was implemented in Python. Besides python standard library packages,
 ### installation
 Download the reporsitory: go to [DownGit](https://downgit.github.io/#/home), enter "https://github.com/osmanbeyoglulab/SPaRTAN/tree/main/SPaRTAN_python", then hit "Download" button.
 
-Install python3, The package is written in python 3.7+.  It used the following dependencies as well: pandas, numpy, scipy, sklearn, matplotlib. 
+Install python3.7 or later. PySpaRTAN used the following dependencies as well: pandas, numpy, scipy, sklearn, matplotlib. 
 
 You can install python dependencies by the following commands:
 ```sh
