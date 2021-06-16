@@ -49,12 +49,21 @@ This will genereate the results using default parameters
 PySPaRTAN model has the following parameters 
 
 dataset_D: default="Dpbmc"
+
 dataset_P: default="Ppbmc5kn_CD8"
+
 dataset_Y: default="Ypbmc5kn_CD8"
+
 input_dir: default="../data/inputs"
+
 output_dir: default="../data/outputs"
+
 spectrumP: default=0.7
+
 rsL2: default=0.001
+
 lambda: default=0.001
+
 normalization: default="l2",  no normalization if set to ""
+
 fold: default=0 (no cross-validation)
