@@ -7,7 +7,7 @@ Briefly, our model views the expression of surface proteins as a proxy of their 
 
 Since the model captures statistical relationships between surface proteins, TFs, and gene expression. We can use the trained interaction matrix to obtain different views of a CITE-seq data set; e.g., to predict TF activity from a cell's surface protein expression profile or to predict surface protein expression from a cell’s gene expression profile.  Intuitively, information flows down from observed surface protein levels through the learned interaction matrix to infer TF activities and observed mRNA expression levels or propagates up through the TF target-gene edges and interaction network to infer surface protein expression.
 
-There are implementations of SPaRTAN in Matlab, and in Python. Since Python is an open souce package, here we give detailed instructions of installation and usage of SPaRTAN writeen in python. Please see the tutorials
+We have implementations of SPaRTAN in Matlab, and in Python. Since Python is an open souce package, here we give detailed instructions of installation and usage of SPaRTAN written in python. Please see the tutorials
 * [Run SPaRTan in Python](https://github.com/osmanbeyoglulab/SPaRTAN/tree/main/SPaRTAN_python)
 
 
