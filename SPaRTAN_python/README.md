@@ -5,9 +5,9 @@ The package was implemented in Python. Besides python standard library packages,
 
 
 ### installation
-Download the reporsitory from https://github.com/osmanbeyoglulab/SPaRTAN. 
+Download the reporsitory: go to [DownGit](https://downgit.github.io/#/home), enter "https://github.com/osmanbeyoglulab/SPaRTAN/tree/main/SPaRTAN_python", then hit "Download" button.
 
-Install python running environment. The package is written in python 3.  SPaRTAN used the following dependencies as well: pandas, numpy, scipy, sklearn, matplotlib. 
+Install python3, The package is written in python 3.7+.  It used the following dependencies as well: pandas, numpy, scipy, sklearn, matplotlib. 
 
 You can install python dependencies by the following commands:
 ```sh
@@ -23,11 +23,11 @@ Our codes have been tested on Linux, Mac, and Windows systems. Please see Prereq
 
 ### Cython extension compilation
 
-In the case of the Cython extensions which are paltform-dependent binary modules are not compatible with your operating system, you need to build the extensions on your own machine.
+In the case of the Cython extensions which are paltform-dependent binary modules are not compatible with your operating system, you need to build the extensions on your own machine. 
 
 First, install Cython by running the command
 ```sh
-pip install cython
+pip install "cython>0.21"    #Not sure if it works. this is based on the [discussion](https://stackoverflow.com/questions/8795617/how-to-pip-install-a-package-with-min-and-max-version-range)
 ```
 Cython requires a C compiler to be present on the system. Please see [Installing Cython](https://cython.readthedocs.io/en/latest/src/quickstart/install.html) for C compiler installation on various operating system.
 
