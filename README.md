@@ -9,6 +9,6 @@ Since the model captures statistical relationships between surface proteins, TFs
 
 There are currently implementations of SPaRTAN in Matlab, and in Python. For more details and installation instructions on running SPaRTAN see the tutorials
 * Data preparation
-* [Run SPaRTan in Python]()
+* [Run SPaRTan in Python](https://github.com/osmanbeyoglulab/SPaRTAN/tree/main/SPaRTAN_python)
 * Run SPaRTan in Matlab
 
