@@ -29,7 +29,7 @@ First, install Cython by running the command
 ```sh
 pip install "cython>0.21"    #Not sure if it works. this is based on the discussion at https://stackoverflow.com/questions/8795617/how-to-pip-install-a-package-with-min-and-max-version-range
 ```
-Cython requires a C compiler to be present on the system. Please see [Installing Cython](https://cython.readthedocs.io/en/latest/src/quickstart/install.html) for C compiler installation on various operating system.
+Cython requires a C compiler to be present on the system. Please check [here](https://cython.readthedocs.io/en/latest/src/quickstart/install.html) for C compiler installation on various operating system.
 
 After installed Cython and C compiler, navigate to the directory SPaRTAN_python and type in the command:
 ```sh
