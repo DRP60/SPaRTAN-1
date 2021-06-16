@@ -17,9 +17,8 @@ parser.add_argument("--dataset_D", help="name of the dataset D which will be pas
 parser.add_argument("--dataset_P", help="name of the dataset P which will be passed in", type=str, default="Ppbmc5kn_CD8")
 parser.add_argument("--dataset_Y", help="name of the dataset Y which will be passed in", type=str, default="Ypbmc5kn_CD8")
 parser.add_argument("--spectrumP", help="Dimension reduction on protein space", type=float, default=0.7)
-parser.add_argument("--lamda", help="", type=float, default=0.001)
-parser.add_argument("--rsL2", help="", type=float, default=0.001)
-
+parser.add_argument("--lamda", help="LASSO regression coefficient", type=float, default=0.001)
+parser.add_argument("--rsL2", help="ridge regression coefficient", type=float, default=0.001)
 parser.add_argument("--normalization", help="type of normalizion, no normalization if set to empty", type=str, default="l2")
 parser.add_argument("--input_dir", help="directory of input files", type=str, default="../data/inputs")
 parser.add_argument("--output_dir", help="directory of output files", type=str, default="../data/outputs")

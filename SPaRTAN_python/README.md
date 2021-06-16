@@ -43,7 +43,7 @@ To run PySPaRTAN module, simply execute the command
 ```sh
 python run_PySPaRTAN.py
 ```
-This will genereate the results using default parameters and dataset
+This will genereate the results using default parameters
 
 
 PySPaRTAN model has the following parameters 
