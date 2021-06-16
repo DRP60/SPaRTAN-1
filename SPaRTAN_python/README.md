@@ -27,7 +27,7 @@ In the case of the Cython extensions which are paltform-dependent binary modules
 
 First, install Cython by running the command
 ```sh
-pip install "cython>0.21"    #Not sure if it works. this is based on the [discussion](https://stackoverflow.com/questions/8795617/how-to-pip-install-a-package-with-min-and-max-version-range)
+pip install "cython>0.21"    #Not sure if it works. this is based on the discussion at https://stackoverflow.com/questions/8795617/how-to-pip-install-a-package-with-min-and-max-version-range
 ```
 Cython requires a C compiler to be present on the system. Please see [Installing Cython](https://cython.readthedocs.io/en/latest/src/quickstart/install.html) for C compiler installation on various operating system.
 
