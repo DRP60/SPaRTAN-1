@@ -35,7 +35,7 @@ After installed Cython and C compiler, navigate to the directory SPaRTAN_python 
 ```sh
 python setup.py build_ext --inplace
 ```
-This will compile .pyx files to  .c files in subfolers of SPaRTAN/cythKronPlus and  SPaRTAN_python/cythLeastR. Then compile these .c files to Cython extension modules which are .so files (or .pyd files on Windows) located in folder SPaRTAN_python. The downloaded .so and .pyd files will be renamed to "*_old.so" and "*_old.pyd" 
+This will generate new Cython extension .so files (or .pyd files on Windows) located in folder SPaRTAN_python. The previously downloaded .so and .pyd files will be renamed to "*_old.so" and "*_old.pyd" 
 
 ## Usage
 
