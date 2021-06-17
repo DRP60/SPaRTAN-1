@@ -176,7 +176,6 @@ W = reg.get_W()
 projD = reg.get_projD()
 projP = reg.get_projP()
 
-
 df_W = pd.DataFrame(data=W, index=TF_name, columns=protein_name)
 df_projP = pd.DataFrame(data=projP, index=cell_name, columns=protein_name)
 df_projD = pd.DataFrame(data=projD, index=TF_name, columns=cell_name)
@@ -188,6 +187,5 @@ outfile_projD = os.path.join(args.output_dir, "projD.csv")
 df_W.to_csv(outfile_W)
 df_projP.to_csv(outfile_projP)
 df_projD.to_csv(outfile_projD)
-
 
 print("Process finished successfully!")
