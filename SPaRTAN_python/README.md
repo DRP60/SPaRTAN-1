@@ -46,7 +46,7 @@ python run_PySPaRTAN.py
 This genereates the results using default parameters
 
 
-PySPaRTAN model has the following parameters 
+PySPaRTAN model has the following parameters ....(not complete)
 ```sh
 dataset_D: default="Dpbmc"
 
