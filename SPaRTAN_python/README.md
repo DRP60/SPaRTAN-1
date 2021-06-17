@@ -31,11 +31,11 @@ pip install "cython>0.21"    #Not sure if it works. this is based on the discuss
 ```
 Cython requires a C compiler to be present on the system. Please check [here](https://cython.readthedocs.io/en/latest/src/quickstart/install.html) for C compiler installation on various operating system.
 
-After installed Cython and C compiler, navigate to the directory SPaRTAN_python and type in the command:
+After installing Cython and C compiler, navigate to the directory SPaRTAN_python and type in the command:
 ```sh
 python setup.py build_ext --inplace
 ```
-This will generate new Cython extension .so files (or .pyd files on Windows) located in folder SPaRTAN_python. The previously downloaded .so and .pyd files will be renamed to "*_old.so" and "*_old.pyd" 
+This generates new Cython extension .so files (or .pyd files on Windows) located in folder SPaRTAN_python. The previously downloaded .so and .pyd files are renamed to "*_old.so" and "*_old.pyd" 
 
 ## Usage
 
@@ -43,7 +43,7 @@ To run PySPaRTAN module, simply execute the command
 ```sh
 python run_PySPaRTAN.py
 ```
-This will genereate the results using default parameters
+This genereates the results using default parameters
 
 
 PySPaRTAN model has the following parameters 
