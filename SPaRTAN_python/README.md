@@ -1,10 +1,10 @@
 # Run SPaRTAN in Python
 
 ## System requirements
-The package was implemented in Python. Besides python standard library packages, such as argparse, functools, etc. it requires some other package from PyPI repository, such as pandas, numpy, sklearn, scipy, and matplotlib. In order to improve the running time performance, we converted some computationally intensive python functions into two Cython modules which are platform dependentent. We have built Cython extensions for WIndow, Mac, and Linux system respectively which are .so files for Mac and Linux and .pyd for Windows. You can also build Cython extensions onsite by running setup.py file, please see details [here]#Cython extension compilation.
+SPaRTAN package is implemented in Python. Besides python standard library packages (i.e. argparse, functools, etc.), it requires some other package from PyPI repository, such as pandas, numpy, sklearn, scipy, and matplotlib. In order to improve the running time performance, we converted some computationally intensive python functions into two Cython modules which, are platform dependent. We have built Cython extensions for Window, Mac, and Linux system, which are .pyd for Windows and .so files for Mac and Linux. You can also build Cython extensions onsite by running setup.py file, which is also explained in this tutorial. 
 
 
-### installation
+### Installation
 Download the reporsitory from https://github.com/osmanbeyoglulab/SPaRTAN
 
 Install python3.7 or later. PySpaRTAN used the following dependencies as well: pandas, numpy, scipy, sklearn, matplotlib. 
@@ -23,7 +23,7 @@ Our codes have been tested on Linux, Mac, and Windows systems. Please see Prereq
 
 ### Cython extension compilation
 
-In the case of the Cython extensions which are paltform-dependent binary modules are not compatible with your operating system, you need to build the extensions on your own machine. 
+If the Cython extensions, which are platform-dependent binary modules, are not compatible with your operating system. You need to build the extensions on your own machine. 
 
 First, install Cython by running the command
 ```sh
