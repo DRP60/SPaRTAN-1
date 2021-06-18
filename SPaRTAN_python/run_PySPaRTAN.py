@@ -59,7 +59,7 @@ parser.add_argument("--normalization", help="type of normalizion performed on ma
                     no normalization if set to empty", type=str, default="l2")
 parser.add_argument('--fold', help="how many folds for the cross_validation.\
                     No cross_validation and using default/specified parameters if set to 0",
-                    type=int, default=5)
+                    type=int, default=0)
 
 args = parser.parse_args()
 
