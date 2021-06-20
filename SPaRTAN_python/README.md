@@ -2,6 +2,10 @@
 
 PySPaRTAN is a  python implementation of the SPaRTAN pipeline (Single-cell Proteomic and RNA based Transcription factor Activity Network) which enables users to infer transcription factor (TF) activities and link cell-surface receptors to TFs by exploiting cellular indexing of transcriptomes and epitopes by sequencing (CITE-seq) datasets with cis-regulatory information.
 
+## Data
+In this demo, we use a subset of the CITE-seq data for 5k (Nextgen) PBMC obtained from 10X Genomics website data to train SPaRTAN.
+To construct the TF – target gene prior matrix, we downloaded a gene set resource containing TF target-gene interactions from DoRothEA. 
+
 ## System requirements
 Besides python standard library packages (i.e. argparse, functools, etc.), PySPaRTAN requires some other package from PyPI repository, such as pandas, numpy, sklearn, scipy, and matplotlib. In order to improve the running time performance, we converted some computationally intensive python functions into two Cython modules which, are platform dependent. We have built Cython extensions for Window, Mac, and Linux system, which are .pyd for Windows and .so files for Mac and Linux. You can also build Cython extensions onsite by running setup.py file, which is also explained in this tutorial. 
 
@@ -38,9 +42,6 @@ After installing Cython and C compiler, navigate to the directory SPaRTAN_python
 python setup.py build_ext --inplace
 ```
 This generates new Cython extension .so files (or .pyd files on Windows) located in folder SPaRTAN_python. The previously downloaded .so and .pyd files are renamed to "*_old.so" and "*_old.pyd" 
-
-## Data
-In this demo, we use a subset of the CITE-seq data for5k (Nextgen) PBMC obtained from 10X Genomics website  data to train SPaRTAN. 
 
 ## Usage
 
@@ -89,3 +90,4 @@ optional arguments:
   --fold FOLD           how many folds for the cross_validation. No cross_validation and using default/specified
                         parameters if set to 0
 ```
+## References
