@@ -59,7 +59,7 @@ parser.add_argument("--normalization", help="type of normalizion performed on ma
                     no normalization if set to empty", type=str, default="l2")
 parser.add_argument('--fold', help="how many folds for the cross_validation.\
                     No cross_validation and using default/specified parameters if set to 0",
-                    type=int, default=0)
+                    type=int, default=5)
 
 args = parser.parse_args()
 
@@ -95,70 +95,58 @@ if fold != 0:  # using cross validation to determine the optimal parameters
     
     lamdas = [0.001, 0.01, 0.1, 0.2, 0.3]
     rsL2s = [0.001, 0.01, 0.1]
-    spectrumAs = [1]
     spectrumBs = [0.5, 0.6, 0.7]
 
     lenlamdas = len(lamdas)
     lenrsL2s = len(rsL2s)
-    lenspAs = len(spectrumAs)
     lenspBs = len(spectrumBs)
     
-    corr_all_pearson = np.zeros((lenspAs, lenspBs, lenlamdas, lenrsL2s))
-    for a in range(0, lenspAs):
-        for b in range(0, lenspBs):
-            for l in range(0, lenlamdas):
-                for r in range(0, lenrsL2s):
-                    print("cross validating spectrumP={}, lambda={}, rsL2={}"
-                          .format(spectrumBs[b], lamdas[l], rsL2s[r]))
-                    sum_corr_pearson = 0
-    
-                    kf = KFold(n_splits=fold)
-                    for train_index, test_index in kf.split(P_mat):
-    
-                        # split the data into train and test set
-                        P_train, P_test = P_mat[train_index, :], P_mat[test_index, :]
-                        Y_train, Y_test = Y_mat[:, train_index], Y_mat[:, test_index]
-    
-                        # normalize the train and test set
-                        Y_train = normalize(Y_train, axis=0)
-                        Y_test = normalize(Y_test, axis=0)
-    
-                        P_train = normalize(P_train, axis=1)
-                        P_test = normalize(P_test, axis=1)
-    
-                        # train the model
-                        reg.fit(
-                            D,
-                            P_train,
-                            Y_train,
-                            lamda=lamdas[l],
-                            rsL2=rsL2s[r],
-                            spectrumA=spectrumAs[a],
-                            spectrumB=spectrumBs[b],
-                        )
-    
-                        # get predicted value Y_pred  on P_test
-                        Y_pred = reg.predict(P_test)
-    
-                        # get the correlation bewteen Y_pred and Y_test
-                        corr_pearson = reg.get_corr(Y_pred, Y_test)
-    
-                        sum_corr_pearson = sum_corr_pearson + corr_pearson
-    
-                    corr_all_pearson[a, b, l, r] = sum_corr_pearson / fold
+    corr_all_pearson = np.zeros((lenspBs, lenlamdas, lenrsL2s))
+    for b in range(0, lenspBs):
+        for l in range(0, lenlamdas):
+            for r in range(0, lenrsL2s):
+                print("cross validating spectrumP={}, lambda={}, rsL2={}"
+                      .format(spectrumBs[b], lamdas[l], rsL2s[r]))
+                sum_corr_pearson = 0
+
+                kf = KFold(n_splits=fold)
+                for train_index, test_index in kf.split(P_mat):
+
+                    # split the data into train and test set
+                    P_train, P_test = P_mat[train_index, :], P_mat[test_index, :]
+                    Y_train, Y_test = Y_mat[:, train_index], Y_mat[:, test_index]
+
+                    # normalize the train and test set
+                    Y_train = normalize(Y_train, axis=0)
+                    Y_test = normalize(Y_test, axis=0)
+
+                    P_train = normalize(P_train, axis=1)
+                    P_test = normalize(P_test, axis=1)
+
+                    # train the model
+                    reg.fit(D, P_train, Y_train, lamdas[l], rsL2s[r], spectrumBs[b])
+
+                    # get predicted value Y_pred  on P_test
+                    Y_pred = reg.predict(P_test)
+
+                    # get the correlation bewteen Y_pred and Y_test
+                    corr_pearson = reg.get_corr(Y_pred, Y_test)
+
+                    sum_corr_pearson = sum_corr_pearson + corr_pearson
+
+                corr_all_pearson[b, l, r] = sum_corr_pearson / fold
 
     # retrive the best parameters
-    max_a, max_b, max_l, max_r = np.unravel_index(
+    max_b, max_l, max_r = np.unravel_index(
         corr_all_pearson.argmax(), corr_all_pearson.shape
     )
     
     lamda_best = lamdas[max_l]
     rsL2_best = rsL2s[max_r]
-    spectrumA_best = spectrumAs[max_a]
     spectrumB_best = spectrumBs[max_b]
        
-    print("lamda_best={}, rsL2_best={}, spectrumA_best={}, spectrumB_best={}"
-          .format(lamda_best, rsL2_best, spectrumA_best, spectrumB_best))
+    print("lamda_best={}, rsL2_best={}, spectrumB_best={}"
+          .format(lamda_best, rsL2_best, spectrumB_best))
 
 else:  # fold ==0: using default/specified paramters
 
@@ -169,7 +157,7 @@ else:  # fold ==0: using default/specified paramters
 
 print("Processing ...")
 # re-train the model
-reg.fit(D, P, Y, lamda_best, rsL2_best, spectrumA_best, spectrumB_best)
+reg.fit(D, P, Y, lamda_best, rsL2_best, spectrumB_best)
 
 # retrieve W, projD, projP
 W = reg.get_W()

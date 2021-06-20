@@ -115,7 +115,7 @@ class PySPaRTAN:
 
     def fit(self, D, P, Y, lamda=0.001, rsL2=0.001, spectrumP=0.7):
  
-       """ trains a SPaRTAN model
+        """ trains a SPaRTAN model
 
         Parameters
         ----------
@@ -128,7 +128,8 @@ class PySPaRTAN:
         spectrum : percent spectrum to keep for P matrix, default=0.7
         
         """
-        spectrumA=1
+        
+        spectrumA = 1
 
         self.D = D
         self.P = P
@@ -272,8 +273,9 @@ class PySPaRTAN:
         """ get projected TF activity
         Parameters
         ----------
-        P: input protein expression for projecting TF activity 
-        """"
+        P: input protein expression for projecting TF activity
+        """
+              
         if P is None:
             P = self.P
         return self.W @ P.T
