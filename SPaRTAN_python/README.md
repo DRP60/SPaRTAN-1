@@ -91,3 +91,12 @@ optional arguments:
                         parameters if set to 0
 ```
 ## References
+Ma X*, Somasundaram A*, Qi Z, Singh H, Osmanbeyoglu HU, SPaRTAN, a computational framework for linking cell-surface receptors to transcriptional regulators. bioRxiv 2020.12.22.423961: doi:https://doi.org/10.1101/2020.12.22.423961
+
+Pelossof, R., Singh, I., Yang, J.L., Weirauch, M.T., Hughes, T.R. and Leslie, C.S. (2015) Affinity regression predicts the recognition code of nucleic acid-binding proteins. Nat Biotechnol, 33, 1242-1249.
+
+Garcia-Alonso, L., Holland, C.H., Ibrahim, M.M., Turei, D. and Saez-Rodriguez, J. (2019) Benchmark and integration of resources for the estimation of human transcription factor activities. Genome Res, 29, 1363-1375.
+
+
+
+
