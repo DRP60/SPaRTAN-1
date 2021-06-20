@@ -39,6 +39,9 @@ python setup.py build_ext --inplace
 ```
 This generates new Cython extension .so files (or .pyd files on Windows) located in folder SPaRTAN_python. The previously downloaded .so and .pyd files are renamed to "*_old.so" and "*_old.pyd" 
 
+## Data
+In this demo, we use a subset of the CITE-seq data for5k (Nextgen) PBMC obtained from 10X Genomics website  data to train SPaRTAN. 
+
 ## Usage
 
 To run PySPaRTAN module, simply execute the command to generate output using default parameters
@@ -48,14 +51,11 @@ python run_PySPaRTAN.py
 
 PySPaRTAN implementation has the following default parameters 
 ```sh
-dataset_D: default="Dpbmc"                                          ##TF – target gene prior matrix (D)
-dataset_P: default="Ppbmc5kn_CD8"                                   ##Surface protein expression.   (P) 
-dataset_Y: default="Ypbmc5kn_CD8"                                   ##Gene expression               (Y)
 input_dir: default="../data/inputs"
 output_dir: default="../data/outputs"
 spectrumP: default=0.7                                              ##Spectrum cut-off points for P. 
-rsL2: default=0.001                                                 ##L_2 norm regularization parameter (rsL2 >=0 )
-lambda: default=0.001                                               ##L_1 norm regularization parameter (lambda >=0)
+rsL2: default=0.001                                                 ##L_2 norm (Ridge) regularization parameter (rsL2 >=0 )
+lambda: default=0.001                                               ##L_1 norm (LASSO) regularization parameter (lambda >=0)
 normalization: default="l2",  no normalization if set to ""
 fold: default=0 (no cross-validation).                              ##number of folds for tuning parameters (e.g. rsL2, lambda and spectrumP)
 ```
@@ -88,4 +88,4 @@ optional arguments:
                         type of normalizion performed on matrices, no normalization if set to empty
   --fold FOLD           how many folds for the cross_validation. No cross_validation and using default/specified
                         parameters if set to 0
- ```
+```
