@@ -41,14 +41,12 @@ This generates new Cython extension .so files (or .pyd files on Windows) located
 
 ## Usage
 
-To run PySPaRTAN module, simply execute the command
+To run PySPaRTAN module, simply execute the command to generate output using default parameters
 ```sh
 python run_PySPaRTAN.py
 ```
-This genereates the results using default parameters
 
-
-PySPaRTAN model has the following parameters ....
+PySPaRTAN implementation has the following default parameters 
 ```sh
 dataset_D: default="Dpbmc"                                          ##TF – target gene prior matrix (D)
 dataset_P: default="Ppbmc5kn_CD8"                                   ##Surface protein expression.   (P) 
@@ -62,3 +60,32 @@ normalization: default="l2",  no normalization if set to ""
 fold: default=0 (no cross-validation).                              ##number of folds for tuning parameters (e.g. rsL2, lambda and spectrumP)
 ```
 ....
+```sh
+python run_PySPaRTAN.py -h
+```
+```sh
+usage: run_PySPaRTAN.py [-h] [--input_dir INPUT_DIR] [--output_dir OUTPUT_DIR] [--dataset_D DATASET_D]
+                        [--dataset_P DATASET_P] [--dataset_Y DATASET_Y] [--spectrumP SPECTRUMP] [--lamda LAMDA]
+                        [--rsL2 RSL2] [--normalization NORMALIZATION] [--fold FOLD]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --input_dir INPUT_DIR
+                        directory of input files
+  --output_dir OUTPUT_DIR
+                        directory of output files
+  --dataset_D DATASET_D
+                        name of gene-TF matrix
+  --dataset_P DATASET_P
+                        name of the dataset P which will be passed in
+  --dataset_Y DATASET_Y
+                        name of the dataset Y which will be passed in
+  --spectrumP SPECTRUMP
+                        Dimension reduction coefficient on protein space
+  --lamda LAMDA         LASSO regression coefficient
+  --rsL2 RSL2           ridge regression coefficient
+  --normalization NORMALIZATION
+                        type of normalizion performed on matrices, no normalization if set to empty
+  --fold FOLD           how many folds for the cross_validation. No cross_validation and using default/specified
+                        parameters if set to 0
+ ```
