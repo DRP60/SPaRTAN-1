@@ -1,7 +1,9 @@
-# Run SPaRTAN in Python
+# Run PySPaRTAN
+
+PySPaRTAN is a  python implementation of the SPaRTAN pipeline (Single-cell Proteomic and RNA based Transcription factor Activity Network) which enables users to infer transcription factor (TF) activities and link cell-surface receptors to TFs by exploiting cellular indexing of transcriptomes and epitopes by sequencing (CITE-seq) datasets with cis-regulatory information.
 
 ## System requirements
-SPaRTAN package is implemented in Python. Besides python standard library packages (i.e. argparse, functools, etc.), it requires some other package from PyPI repository, such as pandas, numpy, sklearn, scipy, and matplotlib. In order to improve the running time performance, we converted some computationally intensive python functions into two Cython modules which, are platform dependent. We have built Cython extensions for Window, Mac, and Linux system, which are .pyd for Windows and .so files for Mac and Linux. You can also build Cython extensions onsite by running setup.py file, which is also explained in this tutorial. 
+Besides python standard library packages (i.e. argparse, functools, etc.), PySPaRTAN requires some other package from PyPI repository, such as pandas, numpy, sklearn, scipy, and matplotlib. In order to improve the running time performance, we converted some computationally intensive python functions into two Cython modules which, are platform dependent. We have built Cython extensions for Window, Mac, and Linux system, which are .pyd for Windows and .so files for Mac and Linux. You can also build Cython extensions onsite by running setup.py file, which is also explained in this tutorial. 
 
 
 ### Installation
@@ -27,7 +29,7 @@ If the Cython extensions, which are platform-dependent binary modules, are not c
 
 First, install Cython by running the command
 ```sh
-pip install "cython>0.21"    #Not sure if it works. this is based on the discussion at https://stackoverflow.com/questions/8795617/how-to-pip-install-a-package-with-min-and-max-version-range
+pip install "cython>0.21"    #please see https://stackoverflow.com/questions/8795617/how-to-pip-install-a-package-with-min-and-max-version-range
 ```
 Cython requires a C compiler to be present on the system. Please check [here](https://cython.readthedocs.io/en/latest/src/quickstart/install.html) for C compiler installation on various operating system.
 
@@ -46,26 +48,17 @@ python run_PySPaRTAN.py
 This genereates the results using default parameters
 
 
-PySPaRTAN model has the following parameters ....(not complete yet)
+PySPaRTAN model has the following parameters ....
 ```sh
-dataset_D: default="Dpbmc"
-
-dataset_P: default="Ppbmc5kn_CD8"
-
-dataset_Y: default="Ypbmc5kn_CD8"
-
+dataset_D: default="Dpbmc"                                          ##TF – target gene prior matrix (D)
+dataset_P: default="Ppbmc5kn_CD8"                                   ##Surface protein expression.   (P) 
+dataset_Y: default="Ypbmc5kn_CD8"                                   ##Gene expression               (Y)
 input_dir: default="../data/inputs"
-
 output_dir: default="../data/outputs"
-
-spectrumP: default=0.7
-
-rsL2: default=0.001
-
-lambda: default=0.001
-
+spectrumP: default=0.7                                              ##Spectrum cut-off points for P. 
+rsL2: default=0.001                                                 ##L_2 norm regularization parameter (rsL2 >=0 )
+lambda: default=0.001                                               ##L_1 norm regularization parameter (lambda >=0)
 normalization: default="l2",  no normalization if set to ""
-
-fold: default=0 (no cross-validation)
+fold: default=0 (no cross-validation).                              ##number of folds for tuning parameters (e.g. rsL2, lambda and spectrumP)
 ```
 ....
